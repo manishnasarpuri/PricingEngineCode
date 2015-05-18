@@ -153,7 +153,7 @@ public class PricingEngine {
 	
 	
 	/**
-	 * Method will check for the Demand i.r High or Low  
+	 * Method will check for the Demand i.e High or Low  
 	 * @param demand
 	 * @return Demand
 	 * */
@@ -167,7 +167,7 @@ public class PricingEngine {
 	}
 	
 	/**
-	 * Method will check for the Choice i.r Yes or No  
+	 * Method will check for the Choice i.e Yes or No  
 	 * @param choice
 	 * @return Choice
 	 * */
