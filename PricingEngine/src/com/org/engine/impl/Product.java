@@ -18,7 +18,7 @@ import com.org.engine.IProduct;
 import com.org.util.PricingStrategy;
 
 /**
- * @author manish_nasarpuri
+ * @author manishnasarpuri
  *
  */
 public class Product implements IProduct{
@@ -78,6 +78,11 @@ public class Product implements IProduct{
 		return price;
 	}
 	
+	/**
+	 * Method will prepare the Map depending on the user input of the product and its survey pricing.
+	 * Map will have key as the pricing amount and value as the frequency of the pricing amount
+	 * @return map
+	 * */
 	private Map<Double, Integer> getPricingMap() {
 		Map<Double, Integer> map = new TreeMap<Double, Integer>();
 		for (Double priceValue : getSurveyPricingList()) {
@@ -94,6 +99,16 @@ public class Product implements IProduct{
 		return map;
 	}
 	
+	/**
+	 * Method takes the input as Map which key is the pricing amount and value is the frequency of the pricing amount.
+	 * First we perform the sorting by value of Map in descending order because we need to get the mostly occurring frequency price.  
+	 * Second Depending on the Pricing Strategy we perform the sorting by key in the map
+	 * If the pricing strategy is Least, then perform the sorting by key in ascending order
+	 * If the pricing strategy is Highest, then perform the sorting by key in descending order
+	 * 
+	 * @param unsortMap
+	 * @return sortedMap
+	 * */
 	private Map<Double, Integer> calculateByStrategy(Map<Double, Integer> unsortMap) {
 		// Convert Map to List
 		List<Map.Entry<Double, Integer>> list = 
@@ -132,11 +147,19 @@ public class Product implements IProduct{
 		return 0;
 	}
 	
-	
-	public boolean checkForAveragePrice(double productAvgCost, Double price) {
+	/**
+	 * 
+	 * Checking for the Average Conditions.
+	 * Prices less than 50% of average price are treated as promotion and not considered.
+	 * Prices more than 50% of average price are treated as data errors and not considered
+	 * @param productAvgCost
+	 * @param choosenPrice
+	 * @return boolean
+	 * */
+	public boolean checkForAveragePrice(double productAvgCost, Double choosenPrice) {
 		double startingPoint = productAvgCost * 0.5;
 		double endingPoint = productAvgCost * 1.5;
-		if (price > startingPoint && price < endingPoint) {
+		if (choosenPrice > startingPoint && choosenPrice < endingPoint) {
 			return true;
 		}
 		return false;

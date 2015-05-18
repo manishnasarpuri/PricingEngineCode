@@ -3,6 +3,10 @@ package com.org.engine.impl;
 import com.org.engine.IProduct;
 import com.org.util.Demand;
 
+/**
+ * @author manishnasarpuri
+ *
+ */
 public class DemandSupplyDecorator extends ProductDecorator{
 	
 	Demand supply;
@@ -30,8 +34,8 @@ public class DemandSupplyDecorator extends ProductDecorator{
 	 * If Supply is Low and Demand is High, Product is sold at 5 % more than chosen price.
 	 * If Supply is High and Demand is Low, Product is sold at 5 % less than chosen price.
 	 * 
-	 * @param product	
-	 * @param price
+	 * @param chosen price
+	 * @return recommendedPrice
 	 * */
 	private double calculatePrice(double price) {
 		double recommedPrice = 0.0;

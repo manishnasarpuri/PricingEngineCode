@@ -25,25 +25,25 @@ public class DemandSupplyDecoratorTest {
 
 	@Test
 	public void testSupplyHighDemandHighPricing() {
-		assertEquals(12.1, new DemandSupplyDecorator(new Product
+		assertEquals(11.0, new DemandSupplyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.LEAST), Demand.H, Demand.H).calculate(),0.0);
 	}
 	
 	@Test
 	public void testSupplyLowDemandLowPricing() {
-		assertEquals(13.1, new DemandSupplyDecorator(new Product
+		assertEquals(12.100000000000001, new DemandSupplyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.LEAST), Demand.L, Demand.L).calculate(),0.0);
 	}
 	
 	@Test
 	public void testSupplyLowDemandHighPricing() {
-		assertEquals(14.1, new DemandSupplyDecorator(new Product
+		assertEquals(11.55, new DemandSupplyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.LEAST), Demand.L, Demand.H).calculate(),0.0);
 	}
 	
 	@Test
 	public void testSupplyHighDemandLowPricing() {
-		assertEquals(11.1, new DemandSupplyDecorator(new Product
+		assertEquals(10.45, new DemandSupplyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.LEAST), Demand.H, Demand.L).calculate(),0.0);
 	}
 

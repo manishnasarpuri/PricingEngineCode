@@ -25,25 +25,25 @@ public class WarrantyDecoratorTest {
 	
 	@Test
 	public void testLeastPricingStategywithWarranty() {
-		assertEquals(11.0, new WarrantyDecorator(new Product
+		assertEquals(11.55, new WarrantyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.LEAST), Choice.Y).calculate(),0.0);
 	}
 	
 	@Test
 	public void testLeastPricingStategywithoutWarranty() {
-		assertEquals(12.0, new WarrantyDecorator(new Product
+		assertEquals(10.45, new WarrantyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.LEAST), Choice.N).calculate(),0.0);
 	}
 	
 	@Test
 	public void testHighestPricingStategywithWarranty() {
-		assertEquals(11.0, new WarrantyDecorator(new Product
+		assertEquals(12.600000000000001, new WarrantyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.HIGHEST), Choice.Y).calculate(),0.0);
 	}
 	
 	@Test
 	public void testHighestPricingStategywithoutWarranty() {
-		assertEquals(12.0, new WarrantyDecorator(new Product
+		assertEquals(11.399999999999999, new WarrantyDecorator(new Product
 				("ssd", surveyPricingList, PricingStrategy.HIGHEST), Choice.N).calculate(),0.0);
 	}
 

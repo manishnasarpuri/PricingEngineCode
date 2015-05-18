@@ -4,7 +4,7 @@
 package com.org.engine;
 
 /**
- * @author manish_nasarpuri
+ * @author manishnasarpuri
  *
  */
 public interface IProduct {

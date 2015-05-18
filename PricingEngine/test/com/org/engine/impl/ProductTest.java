@@ -20,7 +20,6 @@ public class ProductTest {
 		surveyPricingList.add(11.0);
 		surveyPricingList.add(12.0);
 		surveyPricingList.add(10.0);
-		System.out.println("@Before - setUp");
 	}
 
 	@Test

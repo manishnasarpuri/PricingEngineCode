@@ -15,6 +15,11 @@ import com.org.util.Choice;
 import com.org.util.Demand;
 import com.org.util.PricingStrategy;
 
+
+/**
+ * @author manishnasarpuri
+ *
+ */
 public class PricingEngine {
 
 	public static void main(String[] args) {
@@ -22,6 +27,9 @@ public class PricingEngine {
 		engine.getUserInput();
 	}
 	
+	/**
+	 * The method will ask for the user input.
+	 * */
 	public void getUserInput() {
 		int productCount=0;
 		String input = new String();
@@ -80,6 +88,11 @@ public class PricingEngine {
 		}
 	}
 	
+	/**
+	 * Method will check for the Competitor Survey Pricing with the format flashdrive X 12.0
+	 * @param surveyPricingInput
+	 * @param map
+	 * */
 	private void fillPricingObject(String surveyPricingInput,
 			Map<Object, Object[]> map) throws Exception {
 		try {
@@ -105,7 +118,12 @@ public class PricingEngine {
 		}
 
 	}
-
+	
+	/**
+	 * Method will check for the Pricing Strategy depending of user input , if not matched will consider the Least pricing strategy by default  
+	 * @param input
+	 * @return PricingStrategy
+	 * */
 	private PricingStrategy checkPricingStrategy(String input) throws Exception {
 		try {
 			if (input != null && input.equalsIgnoreCase(PricingStrategy.HIGHEST.toString())) {
@@ -132,21 +150,38 @@ public class PricingEngine {
 		map.put(split[0],objects);
 	}
 	
-	public Demand getDemand(String info){
-		if (info.equalsIgnoreCase(Demand.H.toString())) {
+	
+	/**
+	 * Method will check for the Demand i.r High or Low  
+	 * @param demand
+	 * @return Demand
+	 * */
+	public Demand getDemand(String demand){
+		if (demand.equalsIgnoreCase(Demand.H.toString())) {
 			return Demand.H;
-		}else if (info.equalsIgnoreCase(Demand.L.toString())) {
+		}else if (demand.equalsIgnoreCase(Demand.L.toString())) {
 			return Demand.L;
 		}
-		return null;
+		return Demand.L;
 	}
 	
+	/**
+	 * @param bufferRead
+	 * @return String
+	 * */
 	private String checkForProductInput(BufferedReader bufferRead)
 			throws Exception {
 		String input = new String();
 		input = bufferRead.readLine();
 		return checkIfProductInputProper(bufferRead,input);
 	}
+	
+	/**
+	 * @param bufferRead
+	 * @param input
+	 * @return String
+	 * */
+	
 	private String checkIfProductInputProper(BufferedReader bufferRead, String input) throws Exception {
 		try {
 			String[] split = input.split(" ");
@@ -175,12 +210,22 @@ public class PricingEngine {
 		return input;
 	}
 	
+	/**
+	 * @param bufferRead
+	 * @return String
+	 * */
 	private String checkSurveyPricing(BufferedReader bufferRead) throws Exception {
 		String input = new String();
 		input = bufferRead.readLine();
 		return checkIfCompetitorInputProper(bufferRead,input);
 	}
 	
+	
+	/**
+	 * @param bufferRead
+	 * @param input
+	 * @return String
+	 * */
 	private String checkIfCompetitorInputProper(BufferedReader bufferRead,
 			String input) throws Exception{
 		try {

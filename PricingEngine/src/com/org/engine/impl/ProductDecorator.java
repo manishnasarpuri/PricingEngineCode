@@ -7,7 +7,7 @@ import com.org.engine.IProduct;
 
 
 /**
- * @author manish_nasarpuri
+ * @author manishnasarpuri
  *
  */
 public class ProductDecorator implements IProduct {
