@@ -62,6 +62,7 @@ public class PricingEngine {
 			System.out.println("Enter Pricing Strategy Least/Highest");
 			input = bufferRead.readLine();
 			pricingStrategy = checkPricingStrategy(input);
+			System.out.println();
 			Set<Object> keySet = map.keySet();
 			for (Object object : keySet) {
 				Object[] objects = map.get(object);
@@ -145,7 +146,7 @@ public class PricingEngine {
 		objects[0] = getDemand(split[1]);
 		objects[1] = getDemand(split[2]);
 		if (split.length == 4) {
-			objects[2] = getDemand(split[3]);
+			objects[2] = getChoice(split[3]);
 		}
 		map.put(split[0],objects);
 	}
@@ -163,6 +164,20 @@ public class PricingEngine {
 			return Demand.L;
 		}
 		return Demand.L;
+	}
+	
+	/**
+	 * Method will check for the Choice i.r Yes or No  
+	 * @param choice
+	 * @return Choice
+	 * */
+	public Choice getChoice(String choice){
+		if (choice.equalsIgnoreCase(Choice.Y.toString())) {
+			return Choice.Y;
+		}else if (choice.equalsIgnoreCase(Choice.N.toString())) {
+			return Choice.N;
+		}
+		return Choice.N;
 	}
 	
 	/**
